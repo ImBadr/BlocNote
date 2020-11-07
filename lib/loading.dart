@@ -1,6 +1,5 @@
 import 'dart:async';
-
-import 'package:Note/home.dart';
+import 'package:Note/Home.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 
@@ -17,7 +16,7 @@ class _LoadingState extends State<Loading> {
   }
 
   startTime() async {
-    var duration = new Duration(milliseconds: 500);
+    var duration = new Duration(milliseconds: 300);
     return new Timer(duration, route);
   }
 

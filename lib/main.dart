@@ -1,4 +1,4 @@
-import 'package:Note/loading.dart';
+import 'package:Note/Loading.dart';
 import 'package:flutter/material.dart';
 
 void main() {

@@ -26,12 +26,6 @@ dependencies:
   sqflite: ^1.3.0
   path_provider: ^1.6.11
   date_format: ^1.0.8
-  intl: ^0.16.1
-  timezone: ^0.5.7
-  flutter_bloc: ^6.0.5
-  
-
-
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.3
@@ -49,7 +43,6 @@ dev_dependencies:
 flutter_icons:
   android: true
   ios: true
-  image_path: "./assets/Icon/ic_launcher/web_hi_res_512.png"
 
 # The following section is specific to Flutter.
 flutter:

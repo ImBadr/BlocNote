@@ -1,9 +1,7 @@
-import 'package:Note/db/DBProvider.dart';
-import 'package:Note/home.dart';
+import 'package:Note/Home.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/material.dart';
-import 'package:date_format/date_format.dart';
 
 class AddNote extends StatefulWidget {
   @override
@@ -11,8 +9,8 @@ class AddNote extends StatefulWidget {
 }
 
 class _AddNoteState extends State<AddNote> {
-  final title = TextEditingController();
-  final content = TextEditingController();
+  final theTitle = TextEditingController();
+  final theContent = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -47,7 +45,7 @@ class _AddNoteState extends State<AddNote> {
                   children: <Widget>[
                     SizedBox(height: 5.0),
                     TextFormField(
-                      controller: title,
+                      controller: theTitle,
                       maxLength: 39,
                       cursorColor: Colors.white,
                       style: GoogleFonts.roboto(
@@ -80,7 +78,7 @@ class _AddNoteState extends State<AddNote> {
                     ),
                     SizedBox(height: 20.0),
                     TextFormField(
-                      controller: content,
+                      controller: theContent,
                       cursorColor: Colors.white,
                       minLines: 20,
                       maxLines: 40,
@@ -119,13 +117,6 @@ class _AddNoteState extends State<AddNote> {
         icon: const Icon(Icons.save),
         label: const Text('Save'),
         onPressed: () {
-          // DBProvider.db.create(
-          //   title.text,
-          //   content.text,
-          //   formatDate(DateTime.now(),
-          //       [dd, '-', mm, '-', yyyy, ' ', HH, ':', nn, ':', ss]),
-          // );
-          // print(DBProvider.db.getAllNotes().toString());
           back();
         },
       ),
