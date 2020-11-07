@@ -4,34 +4,49 @@ import 'package:Note/Model/Note.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:sqflite/sqlite_api.dart';
 
-void main() async {
-  const String TABLE_NOTE = "note";
-  const String COLUMN_ID = "id";
-  const String COLUMN_TITLE = "title";
-  const String COLUMN_CONTENT = "content";
-  const String COLUMN_DATE = "date";
+class DB {
+  DB._();
+  static final DB db = DB._();
 
-  final Future<Database> database = openDatabase(
-    // Set the path to the database. Note: Using the `join` function from the
-    // `path` package is best practice to ensure the path is correctly
-    // constructed for each platform.
-    join(await getDatabasesPath(), 'note.db'),
-    // When the database is first created, create a table to store dogs.
-    onCreate: (db, version) {
-      // Run the CREATE TABLE statement on the database.
-      return db.execute(
-        "CREATE TABLE $TABLE_NOTE ("
-        "$COLUMN_ID INTEGER PRIMARY KEY,"
-        "$COLUMN_TITLE TEXT,"
-        "$COLUMN_CONTENT TEXT,"
-        "$COLUMN_DATE TEXT"
-        ")",
-      );
-    },
-    // Set the version. This executes the onCreate function and provides a
-    // path to perform database upgrades and downgrades.
-    version: 1,
-  );
+  static const String TABLE_NOTE = "note";
+  static const String COLUMN_ID = "id";
+  static const String COLUMN_TITLE = "title";
+  static const String COLUMN_CONTENT = "content";
+  static const String COLUMN_DATE = "date";
+
+  static Database _database;
+
+  Future<Database> get database async {
+    if (_database != null) return _database;
+
+    // if _database is null we instantiate it
+    _database = await initDatabase();
+    return _database;
+  }
+
+  initDatabase() async {
+    openDatabase(
+      // Set the path to the database. Note: Using the `join` function from the
+      // `path` package is best practice to ensure the path is correctly
+      // constructed for each platform.
+      join(await getDatabasesPath(), 'note.db'),
+      // When the database is first created, create a table to store dogs.
+      onCreate: (db, version) {
+        // Run the CREATE TABLE statement on the database.
+        return db.execute(
+          "CREATE TABLE $TABLE_NOTE ("
+          "$COLUMN_ID INTEGER PRIMARY KEY NOT NULL AUTO_INCREMENT,"
+          "$COLUMN_TITLE TEXT,"
+          "$COLUMN_CONTENT TEXT,"
+          "$COLUMN_DATE TEXT"
+          ")",
+        );
+      },
+      // Set the version. This executes the onCreate function and provides a
+      // path to perform database upgrades and downgrades.
+      version: 1,
+    );
+  }
 
   Future<List<Note>> getNotes() async {
     // Get a reference to the database.
