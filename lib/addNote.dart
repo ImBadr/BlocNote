@@ -128,15 +128,16 @@ class _AddNoteState extends State<AddNote> {
 
   back() {
     if (theTitle.text.isEmpty && theContent.text.isEmpty) {
-      print("impossible to insert note without a Title and a Content");
+      Navigator.pushReplacement(
+          context, MaterialPageRoute(builder: (context) => Home()));
     } else {
       DB.db.insert(new Note(
         title: theTitle.toString(),
         content: theContent.toString(),
         date: DateTime.now().toIso8601String(),
       ));
+      Navigator.pushReplacement(
+          context, MaterialPageRoute(builder: (context) => Home()));
     }
-    Navigator.pushReplacement(
-        context, MaterialPageRoute(builder: (context) => Home()));
   }
 }
