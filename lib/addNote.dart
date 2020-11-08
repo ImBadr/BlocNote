@@ -17,7 +17,7 @@ class _AddNoteState extends State<AddNote> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Hexcolor('#0B409C'),
+      backgroundColor: HexColor('#0B409C'),
       appBar: AppBar(
         elevation: 0.0,
         leading: BackButton(
@@ -30,11 +30,11 @@ class _AddNoteState extends State<AddNote> {
           width: 100,
           height: 50,
         ),
-        backgroundColor: Hexcolor('#0B409C'),
+        backgroundColor: HexColor('#0B409C'),
         centerTitle: true,
       ),
       body: Container(
-        color: Hexcolor('#0B409C'),
+        color: HexColor('#0B409C'),
         child: Padding(
           padding:
               EdgeInsets.only(top: 30.0, bottom: 25.0, left: 20.0, right: 20.0),
@@ -115,7 +115,7 @@ class _AddNoteState extends State<AddNote> {
         ),
       ),
       floatingActionButton: FloatingActionButton.extended(
-        backgroundColor: Hexcolor('#0B409C'),
+        backgroundColor: HexColor('#0B409C'),
         elevation: 10.0,
         icon: const Icon(Icons.save),
         label: const Text('Save'),

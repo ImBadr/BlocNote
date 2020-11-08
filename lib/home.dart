@@ -27,7 +27,7 @@ class _HomeState extends State<Home> {
         ),
         shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.vertical(bottom: Radius.circular(30))),
-        backgroundColor: Hexcolor('#0B409C'),
+        backgroundColor: HexColor('#0B409C'),
         centerTitle: true,
       ),
       body: Center(),

@@ -28,7 +28,7 @@ class _LoadingState extends State<Loading> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Hexcolor('#0B409C'),
+      backgroundColor: HexColor('#0B409C'),
       body: Container(
         child: Center(
             child: Column(
