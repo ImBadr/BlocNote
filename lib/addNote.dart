@@ -1,10 +1,9 @@
 import 'package:Note/Home.dart';
-import 'package:Note/model/Note.dart';
+import 'package:Note/Model/Note.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/material.dart';
-
-import 'db/DB.dart';
+import 'package:Note/db/DB.dart';
 
 class AddNote extends StatefulWidget {
   @override
@@ -116,6 +115,7 @@ class _AddNoteState extends State<AddNote> {
         ),
       ),
       floatingActionButton: FloatingActionButton.extended(
+        backgroundColor: Hexcolor('#0B409C'),
         elevation: 10.0,
         icon: const Icon(Icons.save),
         label: const Text('Save'),
@@ -127,13 +127,15 @@ class _AddNoteState extends State<AddNote> {
   }
 
   back() {
-    Note note = Note(
-      id: 1,
-      title: theTitle.toString(),
-      content: theContent.toString(),
-      date: DateTime.now().toString(),
-    );
-    // DB.db.insert(note);
+    if (theTitle.text.isEmpty && theContent.text.isEmpty) {
+      print("impossible to insert note without a Title and a Content");
+    } else {
+      DB.db.insert(new Note(
+        title: theTitle.toString(),
+        content: theContent.toString(),
+        date: DateTime.now().toIso8601String(),
+      ));
+    }
     Navigator.pushReplacement(
         context, MaterialPageRoute(builder: (context) => Home()));
   }

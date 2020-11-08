@@ -1,10 +1,6 @@
-class Note {
-  static const String TABLE_NOTE = "note";
-  static const String COLUMN_ID = "id";
-  static const String COLUMN_TITLE = "title";
-  static const String COLUMN_CONTENT = "content";
-  static const String COLUMN_DATE = "date";
+import 'package:Note/db/DB.dart';
 
+class Note {
   int id;
   String title;
   String content;
@@ -14,15 +10,10 @@ class Note {
 
   Map<String, dynamic> toMap() {
     return {
-      COLUMN_ID: id,
-      COLUMN_TITLE: title,
-      COLUMN_CONTENT: content,
-      COLUMN_DATE: date,
+      DB.COLUMN_ID: id,
+      DB.COLUMN_TITLE: title,
+      DB.COLUMN_CONTENT: content,
+      DB.COLUMN_DATE: date,
     };
-  }
-
-  @override
-  String toString() {
-    return 'Note{id: $id, title: $title, content: $content, date: $date}';
   }
 }
