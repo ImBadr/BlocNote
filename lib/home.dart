@@ -3,6 +3,8 @@ import 'package:Note/AddNote.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 
+import 'db/DB.dart';
+
 class Home extends StatefulWidget {
   @override
   _HomeState createState() => _HomeState();

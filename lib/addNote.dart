@@ -132,10 +132,11 @@ class _AddNoteState extends State<AddNote> {
           context, MaterialPageRoute(builder: (context) => Home()));
     } else {
       DB.db.insert(new Note(
-        title: theTitle.toString(),
-        content: theContent.toString(),
+        title: theTitle.text,
+        content: theContent.text,
         date: DateTime.now().toIso8601String(),
       ));
+
       Navigator.pushReplacement(
           context, MaterialPageRoute(builder: (context) => Home()));
     }
